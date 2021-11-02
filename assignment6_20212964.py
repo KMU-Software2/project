@@ -129,8 +129,6 @@ class ScoreDB(QWidget):
                 for attr in sorted(p):
                     self.resultEdit.insertPlainText(attr + '=' + str(p[attr]) + '   \t')
                 self.resultEdit.insertPlainText('\n')
-        #self.showScoreDB()
-        self.writeSCoreDB()
 
     def incScoreDB(self):
         for p in self.scoredb:
