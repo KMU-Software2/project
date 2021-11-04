@@ -65,7 +65,7 @@ class ScoreDB(QWidget):
         Del = QPushButton("Del", self)
         grid.addWidget(Del, 3, 2)
 
-        Find = QPushButton("Find,", self)
+        Find = QPushButton("Find", self)
         grid.addWidget(Find, 3, 3)
 
         Inc = QPushButton("Inc", self)
@@ -118,8 +118,8 @@ class ScoreDB(QWidget):
     def showScoreDB(self, keyname): #result 칸에 현재 정보 입력
         for p in sorted(self.scoredb, key=lambda person: person[keyname]):
             for attr in sorted(p):
-                self.resultEdit.append(str(attr) + "=" + str(p[attr]))
-            self.resultEdit.append("")
+                self.resultEdit.insertPlainText(str(attr) + "=" + str(p[attr]) + "\t\t")
+            self.resultEdit.insertPlainText("\n")
 
     def buttonClicked(self):
         button = self.sender()
@@ -154,8 +154,8 @@ class ScoreDB(QWidget):
                     if p['Name'] == N:
                         self.resultEdit.clear()
                         for attr in sorted(p):
-                            self.resultEdit.append(str(attr) + "=" + str(p[attr]))
-                        self.resultEdit.append("")
+                            self.resultEdit.insertPlainText(str(attr) + "=" + str(p[attr]) + "\t\t")
+                        self.resultEdit.insertPlainText("\n")
             except:
                 self.resultEdit.clear()
                 self.showScoreDB(showdb)
